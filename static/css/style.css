@@ -5,6 +5,8 @@
 
 
 
+
+
 body {
   font-family: Dirooz;
   background-color: #f5f5f5;
@@ -1341,7 +1343,7 @@ a {
     display: none;
   }
 
-  .navbar {
+  /* .navbar {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -1378,6 +1380,7 @@ a {
   .dropdown:hover .dropbtn {
     background-color: #f9f9f9;
   }
+  
 
   .dropdown-content {
     display: none;
@@ -1403,7 +1406,7 @@ a {
 
   .dropdown:hover .dropdown-content {
     display: block;
-  }
+  } */
 
   .hero {
     display: block;
@@ -1565,7 +1568,7 @@ a {
 }
 
 
-.li-dropdown{
+.li-dropdown {
   margin-top: 7px;
 }
 
@@ -1574,7 +1577,7 @@ a {
   display: inline-block;
 }
 
-.dark-mode .dropdown-button{
+.dark-mode .dropdown-button {
   color: #ffffff;
 }
 
@@ -1621,4 +1624,92 @@ a {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/*  */
+
+
+
+
+
+
+
+
+
+
+
+.dropdown-mobile {
+  background-color: #000;
+  position: relative;
+  display: none;
+  width: 100%;
+  /* برای سازگاری با موبایل */
+}
+
+.dropdown-btn-mobile {
+  background-color: #ffffff00;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  width: 100%;
+  /* دکمه 100٪ عرض */
+  text-align: right;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-btn-mobile .icon {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+  /* انیمیشن چرخش فلش */
+}
+
+.dropdown-content-mobile {
+  display: none;
+  position: absolute;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+}
+
+.dropdown-content-mobile a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: right;
+}
+
+.dropdown-content-mobile a:hover {
+  background-color: #6b6b6b;
+}
+
+/* حالت باز شده منو */
+.dropdown-mobile.show .dropdown-content-mobile {
+  display: block;
+  background-color: #D9DBDF;
+}
+
+/* چرخش آیکون هنگام باز شدن */
+.dropdown-mobile.show .dropdown-btn-mobile .icon {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .dropdown-mobile {
+    margin-top: 30px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    /* برای سازگاری با موبایل */
+  }
+  .dropdown-btn-mobile {
+    font-size: 18px;
+    padding: 15px;
+  }
 }
