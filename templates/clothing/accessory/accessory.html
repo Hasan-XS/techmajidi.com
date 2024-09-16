@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>اکسسوری</title>
+{% endblock %}
+{% block content %}
+
+<div >
+    <h1>اکسسوری</h1>
+</div>
+<section class="post-container">
+    {% for a in accessory %}
+  
+    <div class="container react-card-flip">
+      <div class="square">
+        <img id="img-posts" src="{{a.image.url}}" class="mask" />
+        <div class="h1">{{a.title}}</div>
+        <p class="text-content">{{a.caption|truncatechars:258}}</p>
+  
+        <div class="btn-auth">
+          <h5>قیمت: {{a.price}} هزار تومان</h5>
+          <h6>برند: {{p.brand}}</h5>
+            <a href="{{a.get_absolute_url}}" class="button">بیشتر بخوانید</a>
+        </div>
+      </div>
+    </div>
+  
+    {% endfor %}
+  </section>
+{% endblock %}

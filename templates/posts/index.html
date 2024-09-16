@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %} {% block head %}
+<title>Home Projects</title>
+
+{% endblock %} {% block content %}
+
+<section class="hero">
+  <div class="div-respons">
+    <h1 class="title-hero">اخبار تکنولوژی با تک نیوز!</h1>
+    <p>شبکه‌های اجتماعی تک نیوز سریع‌ترین روش دسترسی به اخبار فناوری، علم و خودرو است. اگر می‌خواهید به‌روز باشید،
+      شبکه‌های اجتماعی دیجیاتو را دنبال کنید.</p>
+    <div class="social-network">
+      <a href="#"> <img class="icon-network-social" src="{% static 'files/icon/icons8-instagram-48.png' %}"
+          alt="اینستاگرام">
+      </a>
+      <a href="#"> <img class="icon-network-social" src="{% static 'files/icon/icons8-youtube-48.png' %}" alt="یوتوب">
+      </a>
+
+      <a href="#"> <img class="icon-network-social" src="{% static 'files/icon/icons8-x-50.png' %}" alt="">
+      </a>
+
+      <a href="#"> <img class="icon-network-social" src="{% static 'files/icon/icons8-facebook-48.png' %}" alt="">
+      </a>
+    </div>
+    <div class="contact-we">
+      <h6>ارتباط با ما: smartindustriescompany@gmail.com</h6>
+    </div>
+  </div>
+  <img src="{% static 'files/hero.jpg' %}" alt="F">
+</section>
+<hr class="border-b">
+<section class="ads-header">
+  <img src="{% static 'files/ads2.gif' %}" alt="">
+</section>
+
+
+
+<section class="sec">
+  <div class="title-sec-container-h2">
+
+    <a href="{% url 'blogs' %}">
+      <h2>آخرین بلاگ ها:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+  
+  <div class="title-sec-container-h2-div">
+
+    <a href="{% url 'blogs' %}">
+      <h2>آخرین بلاگ ها:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+  <section class="post-container">
+    {% for b in blogs %}
+
+    <div class="container react-card-flip">
+      <div class="square">
+        <img id="img-posts" src="{{b.image.url}}" class="mask" />
+        <div class="h1">{{b.title}}</div>
+        <p class="text-content">{{b.content|truncatechars:258}}</p>
+
+        <div class="btn-auth">
+          <h5>نویسنده: {{b.author}}</h5>
+          <h6>انتشار: {{b.created_at}}</h5>
+            <a href="{{b.get_absolute_url}}" class="button">بیشتر بخوانید</a>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </section>
+
+
+</section>
+<section>
+  <div class="title-sec-container-h2">
+    <a href="{% url 'posts' %}">
+      <h2>آخرین مطالب:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+  </div>
+
+  <div class="title-sec-container-h2-div">
+
+    <a href="{% url 'blogs' %}">
+      <h2>آخرین مطالب:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+  <section class="post-container">
+    {% for p in posts %}
+
+    <div class="container react-card-flip">
+      <div class="square">
+        <img id="img-posts" src="{{p.image.url}}" class="mask" />
+        <div class="h1">{{p.title}}</div>
+        <p class="text-content">{{p.content|truncatechars:258}}</p>
+
+        <div class="btn-auth">
+          <h5>نویسنده: {{p.author}}</h5>
+          <h6>انتشار: {{p.created_at}}</h5>
+            <a href="{{p.get_absolute_url}}" class="button">بیشتر بخوانید</a>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </section>
+
+
+</section>
+{% endblock %}

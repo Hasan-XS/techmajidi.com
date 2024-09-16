@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<title>Home Projects</title>
+
+{% endblock %} {% block content %}
+
+<section class="details-post">
+  <section class="details-sec">
+    <div class="text-sec-details">
+      <h1>{{post.title}}</h1>
+      <p>{{post.content|truncatechars:258}}</p>
+    </div>
+    <img src="{{post.image.url}}" alt="" />
+  </section>
+  <section class="ads-header">
+    <img src="{% static 'files/ads2.gif' %}" alt="">
+  </section>
+
+
+  <section class="content-post">
+    {% for image in post.images.all %}
+    {% if image.title_image != "Untitled" %}
+    <div class="title-image-post-details">
+      <h2>{{image.title_image}}</h2>
+    </div>
+    {% endif %}
+    {% if image.image %}
+    <div class="content-img">
+      <img src="{{image.image.url}}" alt="">
+    </div>
+    {% endif %}
+
+    <p>
+      {{image.caption}}
+    </p>
+    {% endfor %}
+
+  </section>
+
+
+</section>
+
+{% endblock %}

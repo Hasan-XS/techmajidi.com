@@ -1,0 +1,83 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<title>Login</title>
+{% endblock %} {% block content %}
+
+<section class="form-section-login">
+  <div style="display: block">
+    <form class="form-update-profile" method="post">
+      {% csrf_token %}
+      <p class="title">وارد شوید</p>
+      <p class="message">
+        خوش امدی رفیق، اطلاعاتت رو وارد کن تا از اطلاعات سایت ما بهره ببری رفیق
+        من!
+      </p>
+      <label>
+        <input
+          class="input"
+          type="text"
+          name="username"
+          autofocus=""
+          autocapitalize="none"
+          autocomplete="username"
+          maxlength="150"
+          required=""
+          id="id_username"
+        />
+        <span>نام کاربری</span>
+      </label>
+      <label>
+        <input
+          class="input"
+          type="password"
+          name="password"
+          autocomplete="current-password"
+          required=""
+          id="id_password"
+        />
+        <span>رمز عبور</span>
+      </label>
+      <div class="sec-login-forg-sign">
+        <h5><a href="#">اکانت نداری؟</a></h5>
+        <h5><a href="#">فراموشی رمز عبور</a></h5>
+      </div>
+      <button type="submit" class="submit">وارد شوید</button>
+    </form>
+    <div class="with-we"><h5 >با ما همراه باشید</h5></div>
+    
+    <hr class="hr-solid-social-network" />
+    <div class="social-network-login-page">
+      <a href="#">
+        <img
+          class="icon-network-social"
+          src="{% static 'files/icon/icons8-instagram-48.png' %}"
+          alt="اینستاگرام"
+        />
+      </a>
+      <a href="#">
+        <img
+          class="icon-network-social"
+          src="{% static 'files/icon/icons8-youtube-48.png' %}"
+          alt="یوتوب"
+        />
+      </a>
+
+      <a href="#">
+        <img
+          class="icon-network-social"
+          src="{% static 'files/icon/icons8-x-50.png' %}"
+          alt=""
+        />
+      </a>
+
+      <a href="#">
+        <img
+          class="icon-network-social"
+          src="{% static 'files/icon/icons8-facebook-48.png' %}"
+          alt=""
+        />
+      </a>
+    </div>
+  </div>
+  <img src="{% static 'files/login-img.png' %}" alt="F" />
+</section>
+{% endblock %}

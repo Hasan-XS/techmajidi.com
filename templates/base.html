@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{%static 'css/style.css'%}" type="text/css" />
+  {% block head %} {% endblock %}
+</head>
+
+<body>
+  <header class="ads-header">
+    <img src="{% static 'files/ads1.gif' %}" alt="" />
+  </header>
+
+
+
+
+
+
+
+  <div class="navbar">
+    <div class="dropdown">
+      <button class="dropbtn">
+        <img class="icon-nav" src="{% static 'files/icon/icons8-menu-48.png' %}" alt="profile" />
+      </button>
+      <div class="dropdown-content">
+        <a href="/">صفحه اصلی</a>
+        <a href="{% url 'clothings' %}">لباس ها</a>
+        <a href="{% url 'posts' %}">مطالب ها</a>
+
+        <a href="{% url 'blogs' %}">بلاگ ها</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">خروج از حساب</a>
+        {% endif %}
+
+      </div>
+    </div>
+    {% if user.is_authenticated %}
+    <a href="/account/profile/">
+
+      <img class="icon-nav" src="{% static 'files/icon/icons8-test-account-100.png' %}" alt="profile" />
+
+    </a>
+    {% else %}
+    <a href="{% url 'login' %}">وارد شوید!</a>
+    <a href="{% url 'register' %}">ثبت نام</a>
+    {% endif %}
+  </div>
+
+
+
+
+
+
+
+
+
+  
+
+  <nav class="nav-bar">
+    <ul>
+      <li>
+        <img class="icon-nav" src="{% static 'files/icon/icons8-technology-40.png' %}" alt="" /><a href="/">صفحه
+          اصلی</a>
+      </li>
+
+      <li class="li-dropdown">
+        <div class="dropdown">
+          <a href="{% url 'clothings' %}" class="dropdown-button">محصولات</a>
+          <div class="dropdown-content">
+            <a href="{% url 'clothings' %}">تیشرت</a>
+            <a href="{% url 'shoes' %}">کتانی</a>
+            <a href="{% url 'accessory' %}">اکسسوری</a>
+            <a href="{% url 'pants' %}">شلوار</a>
+            <a href="{% url 'hat' %}">کلاه</a>
+
+          </div>
+        </div>
+      </li>
+
+
+      <li>
+        <img class="icon-nav" src="{% static 'files/icon/icons8-blog-64.png' %}" alt="" /><a
+          href="{% url 'blogs' %}">بلاگ ها</a>
+      </li>
+
+      <li>
+        <img class="icon-nav" src="{% static 'files/icon/icons8-blog-64.png' %}" alt="" /><a
+          href="{% url 'posts' %}">مطالب ها</a>
+      </li>
+      {% if user.is_authenticated %}
+
+      <li>
+        <img class="icon-nav" src="{% static 'files/icon/icons8-test-account-100.png' %}" alt="" /><a
+          href="/account/profile/">پروفایل</a>
+      </li>
+      <li>
+        <img class="icon-nav" src="{% static 'files/icon/icons8-logout-100.png' %}" alt="" /><a
+          href="{% url 'logout' %}">خروج از حساب</a>
+      </li>
+
+      {% else %}
+      <li>
+        <img class="icon-nav" src="{% static 'files/icon/icons8-access-100.png' %}" alt="" /><a
+          href="{% url 'login' %}">وارد شوید!</a>
+      </li>
+      <li>
+        <img class="icon-nav" src="{% static 'files/icon/icons8-sign-up-100.png' %}" alt="" /><a
+          href="{% url 'register' %}">ثبت نام</a>
+      </li>
+      {% endif %}
+    </ul>
+    <div class="div-logo-and-theme-toggle">
+      <div id="theme-toggle">
+        <img class="icon-swich-mode-dark-and-light" src="{% static 'files/icon/icons8-dark-mode.png' %}" alt="" />
+      </div>
+      <h2>Tech News</h2>
+    </div>
+  </nav>
+  <hr class="border-nav-b" />
+  <!-- <div class="welcome-user">
+      {% if user.is_authenticated %}
+      <h3>
+        Welcome, <span style="color: green">{{user}}</span> has
+        <span style="color: blue">successfully</span> logged in
+      </h3>
+      {% endif %}
+    </div>
+    <hr /> -->
+  <section class="container-back">{% block content %} {% endblock %}</section>
+  <script>
+    // dark mode
+
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+
+      // ذخیره مود انتخاب‌شده در localStorage
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    });
+
+    // بررسی ذخیره‌شده در localStorage
+    window.addEventListener("load", () => {
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    });
+  </script>
+  <!-- <script src="{%static 'js/script.js' %}"></script> -->
+</body>
+
+</html>

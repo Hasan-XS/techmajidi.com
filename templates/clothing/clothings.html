@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>محصولات پوشاک</title>
+{% endblock %}
+{% block content %}
+
+<section class="post-container">
+    {% for t in tshirts %}
+  
+    <div class="container react-card-flip">
+      <div class="square">
+        <img id="img-posts" src="{{t.image.url}}" class="mask" />
+        <div class="h1">{{t.title}}</div>
+        <p class="text-content">{{t.caption|truncatechars:258}}</p>
+  
+        <div class="btn-auth">
+          <h5>قیمت: {{t.price}} هزار تومان</h5>
+          <h6>برند: {{t.brand}}</h5>
+            <a href="{{t.get_absolute_url}}" class="button">بیشتر بخوانید</a>
+        </div>
+      </div>
+    </div>
+  
+    {% endfor %}
+  </section>
+{% endblock %}

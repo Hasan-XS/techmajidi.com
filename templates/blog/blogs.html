@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>بلاگ ها</title>
+{% endblock %}
+{% block content %}
+
+<section class="post-container">
+    {% for b in blogs %}
+  
+    <div class="container react-card-flip">
+      <div class="square">
+        <img id="img-posts" src="{{b.image.url}}" class="mask" />
+        <div class="h1">{{b.title}}</div>
+        <p class="text-content">{{b.content|truncatechars:258}}</p>
+  
+        <div class="btn-auth">
+          <h5>نویسنده: {{b.author}}</h5>
+          <h6>انتشار: {{b.created_at}}</h5>
+            <a href="{{b.get_absolute_url}}" class="button">بیشتر بخوانید</a>
+        </div>
+      </div>
+    </div>
+  
+    {% endfor %}
+  </section>
+{% endblock %}
