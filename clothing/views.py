@@ -21,6 +21,17 @@ def clothings_view(request):
     )
 
 
+def tshirt_view(request):
+    tshirt = list(reversed(Tshirt.objects.all()))
+    return render(
+        request,
+        "clothing/tshirt/tshirt.html",
+        {
+            "tshirt": tshirt,
+        },
+    )
+
+
 def shoes_view(request):
     shoes = list(reversed(Shoes.objects.all()))
     return render(
