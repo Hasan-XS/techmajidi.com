@@ -7,16 +7,20 @@ from .models import *
 
 
 def clothings_view(request):
-    tshirt = Tshirt.objects.all()
-    shoes = Shoes.objects.all()
-    shoes_list = list(reversed(shoes))[:4]
-    tshirt_list = list(reversed(tshirt))[:4]
+    shoes = list(reversed(Shoes.objects.all()))[:4]
+    tshirt = list(reversed(Tshirt.objects.all()))[:4]
+    accessory = list(reversed(Accessory.objects.all()))[:4]
+    pants = list(reversed(Pants.objects.all()))[:4]
+    hat = list(reversed(Hat.objects.all()))[:4]
     return render(
         request,
         "clothing/clothings.html",
         {
-            "tshirts": tshirt_list,
-            "shoes": shoes_list,
+            "tshirts": tshirt,
+            "shoes": shoes,
+            "accessory": accessory,
+            "pants": pants,
+            "hat": hat,
         },
     )
 
