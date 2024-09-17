@@ -1,6 +1,8 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
+
 
 class Tshirt(models.Model):
     image = models.ImageField(upload_to="tshirt/", null=True, blank=True)
@@ -8,10 +10,12 @@ class Tshirt(models.Model):
     brand = models.CharField(max_length=60)
     caption = models.TextField()
     price = models.IntegerField()
-    
+
     def __str__(self):
         return self.title
-    
+
+    def get_absolute_url(self):
+        return reverse("tshirt_details", kwargs={"pk": self.id})
 
 
 class Shoes(models.Model):
@@ -20,10 +24,13 @@ class Shoes(models.Model):
     brand = models.CharField(max_length=60)
     caption = models.TextField()
     price = models.IntegerField()
-    
+
     def __str__(self):
         return self.title
-    
+
+    def get_absolute_url(self):
+        return reverse("shoes_details", kwargs={"pk": self.id})
+
 
 class Accessory(models.Model):
     image = models.ImageField(upload_to="accessory/", null=True, blank=True)
@@ -31,10 +38,13 @@ class Accessory(models.Model):
     brand = models.CharField(max_length=60)
     caption = models.TextField()
     price = models.IntegerField()
-    
+
     def __str__(self):
         return self.title
-    
+
+    def get_absolute_url(self):
+        return reverse("accessory_details", kwargs={"pk": self.id})
+
 
 class Pants(models.Model):
     image = models.ImageField(upload_to="pants/", null=True, blank=True)
@@ -42,10 +52,12 @@ class Pants(models.Model):
     brand = models.CharField(max_length=60)
     caption = models.TextField()
     price = models.IntegerField()
-    
+
     def __str__(self):
         return self.title
-    
+
+    def get_absolute_url(self):
+        return reverse("pant_details", kwargs={"pk": self.id})
 
 
 class Hat(models.Model):
@@ -54,6 +66,9 @@ class Hat(models.Model):
     brand = models.CharField(max_length=60)
     caption = models.TextField()
     price = models.IntegerField()
-    
+
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("hat_details", kwargs={"pk": self.id})
