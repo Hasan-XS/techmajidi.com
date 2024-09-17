@@ -1,18 +1,40 @@
 {% extends 'base.html' %}
 {% block head %}
-    <title>محصولات پوشاک</title>
+<title>محصولات پوشاک</title>
 {% endblock %}
 {% block content %}
 
-<section class="post-container">
+
+
+<section class="sec">
+  <div class="title-sec-container-h2">
+
+    <a href="{% url 'tshirt' %}">
+      <h2>انواع تیشرت با برند های مختلف:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+
+  <div class="title-sec-container-h2-div">
+
+    <a href="{% url 'tshirt' %}">
+      <h2>انواع تیشرت با برند های مختلف:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+  <section class="post-container">
     {% for t in tshirts %}
-  
+
     <div class="container react-card-flip">
       <div class="square">
         <img id="img-posts" src="{{t.image.url}}" class="mask" />
         <div class="h1">{{t.title}}</div>
         <p class="text-content">{{t.caption|truncatechars:258}}</p>
-  
+
         <div class="btn-auth">
           <h5>قیمت: {{t.price}} هزار تومان</h5>
           <h6>برند: {{t.brand}}</h5>
@@ -20,7 +42,182 @@
         </div>
       </div>
     </div>
-  
+
     {% endfor %}
   </section>
+
+</section>
+
+<section class="sec">
+  <div class="title-sec-container-h2">
+
+    <a href="{% url 'shoes' %}">
+      <h2>کفش و کتانی:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+
+  <div class="title-sec-container-h2-div">
+
+    <a href="{% url 'shoes' %}">
+      <h2>کفش و کتانی:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+  <section class="post-container">
+    {% for s in shoes %}
+
+    <div class="container react-card-flip">
+      <div class="square">
+        <img id="img-posts" src="{{s.image.url}}" class="mask" />
+        <div class="h1">{{t.title}}</div>
+        <p class="text-content">{{s.caption|truncatechars:258}}</p>
+
+        <div class="btn-auth">
+          <h5>قیمت: {{s.price}} هزار تومان</h5>
+          <h6>برند: {{s.brand}}</h5>
+            <a href="{{s.get_absolute_url}}" class="button">بیشتر بخوانید</a>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </section>
+
+</section>
+
+<section class="sec">
+  <div class="title-sec-container-h2">
+
+    <a href="{% url 'accessory' %}">
+      <h2>اکسسوری و لوازم خودرو:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+
+  <div class="title-sec-container-h2-div">
+
+    <a href="{% url 'accessory' %}">
+      <h2>اکسسوری و لوازم خودرو:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+  <section class="post-container">
+    {% for a in accessory %}
+
+    <div class="container react-card-flip">
+      <div class="square">
+        <img id="img-posts" src="{{a.image.url}}" class="mask" />
+        <div class="h1">{{a.title}}</div>
+        <p class="text-content">{{a.caption|truncatechars:258}}</p>
+
+        <div class="btn-auth">
+          <h5>قیمت: {{a.price}} هزار تومان</h5>
+          <h6>برند: {{a.brand}}</h5>
+            <a href="{{a.get_absolute_url}}" class="button">بیشتر بخوانید</a>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </section>
+
+</section>
+
+
+
+<section class="sec">
+  <div class="title-sec-container-h2">
+
+    <a href="{% url 'pants' %}">
+      <h2>انواع شلوار ها:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+
+  <div class="title-sec-container-h2-div">
+
+    <a href="{% url 'pants' %}">
+      <h2>انواع شلوار ها:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+  <section class="post-container">
+    {% for p in pants %}
+
+    <div class="container react-card-flip">
+      <div class="square">
+        <img id="img-posts" src="{{p.image.url}}" class="mask" />
+        <div class="h1">{{p.title}}</div>
+        <p class="text-content">{{p.caption|truncatechars:258}}</p>
+
+        <div class="btn-auth">
+          <h5>قیمت: {{p.price}} هزار تومان</h5>
+          <h6>برند: {{p.brand}}</h5>
+            <a href="{{p.get_absolute_url}}" class="button">بیشتر بخوانید</a>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </section>
+
+</section>
+
+
+
+<section class="sec">
+  <div class="title-sec-container-h2">
+
+    <a href="{% url 'hat' %}">
+      <h2>دسته ی کلاه ها
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+
+  <div class="title-sec-container-h2-div">
+
+    <a href="{% url 'hat' %}">
+      <h2>دسته ی کلاه ها:
+        <hr class="hr-title-posts">
+      </h2>
+    </a>
+
+  </div>
+  <section class="post-container">
+    {% for h in hat %}
+
+    <div class="container react-card-flip">
+      <div class="square">
+        <img id="img-posts" src="{{h.image.url}}" class="mask" />
+        <div class="h1">{{h.title}}</div>
+        <p class="text-content">{{h.caption|truncatechars:258}}</p>
+
+        <div class="btn-auth">
+          <h5>قیمت: {{h.price}} هزار تومان</h5>
+          <h6>برند: {{h.brand}}</h5>
+            <a href="{{h.get_absolute_url}}" class="button">بیشتر بخوانید</a>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </section>
+
+</section>
+
 {% endblock %}
