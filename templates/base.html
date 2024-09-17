@@ -5,7 +5,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{%static 'css/style.css'%}" type="text/css" />
+  <link rel="stylesheet" href="{%static 'css/style.css'%}" />
+  <link rel="stylesheet" href="{%static 'css/response-mobile.css'%}" />
   {% block head %} {% endblock %}
 </head>
 
@@ -14,17 +15,24 @@
     <img src="{% static 'files/ads1.gif' %}" alt="" />
   </header>
 
-  <div style="background-color: rgba(255, 255, 255, 0);" class="dropdown-mobile" id="dropdownMenu">
+
+  <div class="logo-website-mobile" style="display: flex; justify-content: center; margin-top: 20px;">
+    <h2>Tech News</h2>
+  </div>
+
+  <div style="background-color: rgba(255, 255, 255, 0); margin-top: -8px;" class="dropdown-mobile" id="dropdownMenu">
     <div style="display: flex; align-items: center;">
 
       <button style="width: 60px; margin-right: 8px;" class="dropdown-btn-mobile" onclick="toggleDropdown()">
-        <img style="max-width: 40px;" class="icon-nav" src="{% static 'files/icon/icons8-menu-48.png' %}" alt="profile" />
+        <img style="max-width: 40px;" class="icon-nav" src="{% static 'files/icon/icons8-menu-48.png' %}"
+          alt="profile" />
       </button>
 
       <section class="login-profile">
         {% if user.is_authenticated %}
         <a href="/account/profile/" style="margin-right: 270px;">
-          <img style="max-width: 40px; margin-top: 2px;" class="icon-nav" src="{% static 'files/icon/icons8-test-account-100.png' %}" alt="profile" />
+          <img style="max-width: 40px; margin-top: 2px;" class="icon-nav"
+            src="{% static 'files/icon/icons8-test-account-100.png' %}" alt="profile" />
         </a>
         {% else %}
         <ul class="ul-navbar-mobile" style="display: flex;">
@@ -32,7 +40,7 @@
             <a style="margin: 90px;" href="{% url 'login' %}">وارد شوید!</a>
           </li>
           <li style="list-style: none;">
-            <a href="{% url 'register' %}">ثبت نام</a>    
+            <a href="{% url 'register' %}">ثبت نام</a>
           </li>
         </ul>
         {% endif %}
@@ -41,16 +49,6 @@
       </section>
     </div>
 
-
-
-
-
-
-
-
-
-
-    
     <div class="dropdown-content-mobile">
       <a href="/">صفحه اصلی</a>
       <a href="{% url 'clothings' %}">لباس ها</a>
@@ -63,35 +61,6 @@
     </div>
   </div>
 
-
-  <!-- <div class="navbar">
-    <div class="dropdown">
-      <button class="dropbtn">
-        <img class="icon-nav" src="{% static 'files/icon/icons8-menu-48.png' %}" alt="profile" />
-      </button>
-      <div class="dropdown-content">
-        <a href="/">صفحه اصلی</a>
-        <a href="{% url 'clothings' %}">لباس ها</a>
-        <a href="{% url 'posts' %}">مطالب ها</a>
-
-        <a href="{% url 'blogs' %}">بلاگ ها</a>
-        {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}">خروج از حساب</a>
-        {% endif %}
-
-      </div>
-    </div>
-    {% if user.is_authenticated %}
-    <a href="/account/profile/">
-
-      <img class="icon-nav" src="{% static 'files/icon/icons8-test-account-100.png' %}" alt="profile" />
-
-    </a>
-    {% else %}
-    <a href="{% url 'login' %}">وارد شوید!</a>
-    <a href="{% url 'register' %}">ثبت نام</a>
-    {% endif %}
-  </div> -->
 
   <nav class="nav-bar">
     <ul>
@@ -190,6 +159,9 @@
       var dropdown = document.getElementById("dropdownMenu");
       dropdown.classList.toggle("show"); // نمایش یا مخفی کردن منو
     }
+
+
+    
   </script>
   <!-- <script src="{%static 'js/script.js' %}"></script> -->
 </body>
