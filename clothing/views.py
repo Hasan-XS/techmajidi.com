@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from .models import *
 
 
@@ -36,6 +36,17 @@ def tshirt_view(request):
     )
 
 
+def tshirt_details_view(request, pk):
+    tshirt = get_object_or_404(Tshirt, id=pk)
+    return render(
+        request,
+        "clothing/tshirt/tshirt-details.html",
+        {
+            "tshirt": tshirt,
+        },
+    )
+
+
 def shoes_view(request):
     shoes = list(reversed(Shoes.objects.all()))
     return render(
@@ -47,11 +58,33 @@ def shoes_view(request):
     )
 
 
+def shoes_details_view(request, pk):
+    shoes = get_object_or_404(Shoes, id=pk)
+    return render(
+        request,
+        "clothing/shoes/shoes-details.html",
+        {
+            "shoes": shoes,
+        },
+    )
+
+
 def accessory_view(request):
     accessory = list(reversed(Accessory.objects.all()))
     return render(
         request,
-        "clothing/accessory/accessory.html",
+        "clothing/accessory/accessory-details.html",
+        {
+            "accessory": accessory,
+        },
+    )
+
+
+def accessory_details_view(request, pk):
+    accessory = get_object_or_404(Accessory, id=pk)
+    return render(
+        request,
+        "clothing/accessory/accessory-details.html",
         {
             "accessory": accessory,
         },
@@ -69,6 +102,28 @@ def pants_view(request):
     )
 
 
+def panst_details_view(request, pk):
+    pants = get_object_or_404(Pants, id=pk)
+    return render(
+        request,
+        "clothing/pant/pant-details.html",
+        {
+            "pant": pants,
+        },
+    )
+
+
 def hat_view(request):
     hat = list(reversed(Hat.objects.all()))
     return render(request, "clothing/hat/hat.html", {"hat": hat})
+
+
+def hat_details_view(request, pk):
+    hat = get_object_or_404(Hat, id=pk)
+    return render(
+        request,
+        "clothing/hat/hat-details.html",
+        {
+            "hat": hat,
+        },
+    )
