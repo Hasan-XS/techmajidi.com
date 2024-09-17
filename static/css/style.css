@@ -1634,25 +1634,25 @@ a {
 
 
 
-
-
+.ul-navbar-mobile{
+  display: flex;
+  list-style: none;
+}
 
 
 .dropdown-mobile {
-  background-color: #000;
   position: relative;
   display: none;
   width: 100%;
+  align-items: center;
   /* برای سازگاری با موبایل */
 }
 
 .dropdown-btn-mobile {
-  background-color: #ffffff00;
   color: white;
   padding: 14px;
   font-size: 16px;
   border: none;
-  width: 100%;
   /* دکمه 100٪ عرض */
   text-align: right;
   cursor: pointer;
@@ -1662,11 +1662,11 @@ a {
   align-items: center;
 }
 
-.dropdown-btn-mobile .icon {
+/* .dropdown-btn-mobile .icon {
   margin-left: 10px;
   transition: transform 0.3s ease;
   /* انیمیشن چرخش فلش */
-}
+
 
 .dropdown-content-mobile {
   display: none;
@@ -1696,9 +1696,9 @@ a {
 }
 
 /* چرخش آیکون هنگام باز شدن */
-.dropdown-mobile.show .dropdown-btn-mobile .icon {
+/* .dropdown-mobile.show .dropdown-btn-mobile .icon {
   transform: rotate(180deg);
-}
+} */
 
 @media (max-width: 768px) {
   .dropdown-mobile {
