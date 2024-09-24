@@ -21,7 +21,7 @@ def posts_view_index(request):
     context = {
         "posts": posts_list,
         "blogs": blogs_list,
-        "tshirts":tshirts,
+        "tshirts": tshirts,
     }
     return render(request, "posts/index.html", context)
 
