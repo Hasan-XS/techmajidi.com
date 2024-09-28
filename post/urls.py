@@ -5,6 +5,7 @@ from .views import (
     blogs_view,
     blog_details_view,
     posts_view,
+    posts_by_category,
 )
 
 urlpatterns = [
@@ -13,4 +14,5 @@ urlpatterns = [
     path("post/details/<pk>/", post_view_details, name="post_details"),
     path("post/blogs/", blogs_view, name="blogs"),
     path("post/blogs/details/<pk>/", blog_details_view, name="blog_details"),
+    path("post/category/<int:category_id>/", posts_by_category, name="posts_category"),
 ]

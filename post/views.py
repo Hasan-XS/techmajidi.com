@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
-from .models import Blog, Post
+from .models import Blog, Post, Category
 from clothing.models import Tshirt, Shoes, Pants, Accessory, Hat
 from django.views.generic import DetailView
 
@@ -68,3 +68,18 @@ def blog_details_view(request, pk):
             "blog": blog,
         },
     )
+
+
+def posts_by_category(request, category_id):
+    category =  get_object_or_404(Category, id=category_id)
+    
+    posts = list(reversed(Post.objects.filter(category=category)))
+    
+
+    context = {
+        "category": category,
+        "posts": posts,
+    }
+    
+    return render(request, "posts/posts_by_category.html", context)
+    
